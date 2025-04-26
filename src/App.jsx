@@ -2,6 +2,10 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Header from './components/Header.jsx'
+
+
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,6 +13,7 @@ function App() {
   return (
     <>
       <div>
+        <Header></Header>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -28,8 +33,31 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+        <main>
+            <h1>Hello React!!!</h1>
+        </main>
+
     </>
   )
 }
 
 export default App
+
+// Библиотека для веба и интерфейсов пользовательских
+// native = react native for phones
+// Библиотека = Компоненты из js. Строительные блоки.
+// Императивный подход был - последовательное выполнение команд
+// Декларативный подхдо const [active, setActive] реактивный. состояния.
+/*
+
+create-react-app -> компилирует -> в браузер
+vite - сборщик проектов - шаблоны для react -
+
+
+react компоненты
+
+
+
+
+ */
