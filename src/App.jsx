@@ -3,16 +3,44 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header.jsx'
+import Button from "./components/Button/Button.jsx";
+
 
 
 
 
 function App() {
   const [count, setCount] = useState(0)
+    let [ content, setContent ] = useState('Нажми на кнопку')
+    // первой значение - по умолчению - 'NAME'
+    // второй элемент - функция для изменения значения)
+
+  // Стэйт всегда на верхнем уровне (на левом, главном)
+    function handleClick(type) {
+        console.log('КЛИКАЮ ЖОСКО', type);
+        //setContent = type - напрямую не пишем. не сработает
+        setContent(type);
+
+    }
+
 
   return (
     <>
       <div>
+
+          <Button buttonClicked={handleClick}>"Здесь я могу прописывать без пропсов"
+          <h1>Прикол</h1>
+          </Button>
+          <Button buttonClicked={() => handleClick('way')}>"Здесь я могу прописывать без пропсов"
+          {/*//Замыкание. Для определения типа () => КАКАЯ ЭТО КНОПКА?*/}
+          </Button>
+          <Button buttonClicked={() => handleClick('easy')}>"Здесь я могу прописывать без пропсов"
+              //Замыкание
+          </Button>
+          <Button buttonClicked={() => handleClick('programm')}>"Здесь я могу прописывать без пропсов"
+              //Замыкание
+          </Button>
+          <p>{content}</p>
         <Header></Header>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
