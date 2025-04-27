@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header.jsx'
 import Button from "./components/Button/Button.jsx";
+import {differences} from "./data.js";
 
 
 
@@ -15,11 +16,15 @@ function App() {
     // первой значение - по умолчению - 'NAME'
     // второй элемент - функция для изменения значения)
 
+
   // Стэйт всегда на верхнем уровне (на левом, главном)
     function handleClick(type) {
         console.log('КЛИКАЮ ЖОСКО', type);
         //setContent = type - напрямую не пишем. не сработает
         setContent(type);
+        console.log(content)
+        // Показывает предыдущий. State будет изменён при следующем рендере.
+        //Как работать тогда с новым значением?
 
     }
 
@@ -28,7 +33,7 @@ function App() {
     <>
       <div>
 
-          <Button buttonClicked={handleClick}>"Здесь я могу прописывать без пропсов"
+          <Button buttonClicked={() => handleClick('MAIN')}>"Здесь я могу прописывать без пропсов"
           <h1>Прикол</h1>
           </Button>
           <Button buttonClicked={() => handleClick('way')}>"Здесь я могу прописывать без пропсов"
@@ -37,10 +42,11 @@ function App() {
           <Button buttonClicked={() => handleClick('easy')}>"Здесь я могу прописывать без пропсов"
               //Замыкание
           </Button>
-          <Button buttonClicked={() => handleClick('programm')}>"Здесь я могу прописывать без пропсов"
+          <Button buttonClicked={() => handleClick('program')}>"Здесь я могу прописывать без пропсов"
               //Замыкание
           </Button>
-          <p>{content}</p>
+          <p>{differences[content]}</p>
+
         <Header></Header>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
