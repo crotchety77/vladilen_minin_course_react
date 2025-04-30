@@ -12,7 +12,7 @@ import {differences} from "./data.js";
 
 function App() {
   const [count, setCount] = useState(0)
-    let [ content, setContent ] = useState('Нажми на кнопку')
+    let [ content, setContent ] = useState()
     // первой значение - по умолчению - 'NAME'
     // второй элемент - функция для изменения значения)
 
@@ -26,6 +26,13 @@ function App() {
         // Показывает предыдущий. State будет изменён при следующем рендере.
         //Как работать тогда с новым значением?
 
+    }
+    let ifContent = null
+
+    if (content) {
+        ifContent = <p>{differences[content]}</p>
+    } else {
+        ifContent = <p>Нажми на кнопку!</p>
     }
 
 
@@ -45,7 +52,25 @@ function App() {
           <Button buttonClicked={() => handleClick('program')}>"Здесь я могу прописывать без пропсов"
               //Замыкание
           </Button>
-          <p>{differences[content]}</p>
+
+
+          {/*{content*/}
+          {/*    ? <p>{differences[content]}</p>*/}
+          {/*    : <p>Нажми на кнопку</p>}*/}
+
+          {/*{content ? (*/}
+          {/*    <p>{differences[content]}</p>*/}
+          {/*    ) : (*/}
+          {/*    <p>Нажми на кнопку</p>*/}
+          {/*)*/}
+          {/*}*/}
+
+          {/*{ !content ? <p>Нажми на кнопку</p> : null}*/}
+          {/*{ content ? <p>{differences[content]}</p> : null}*/}
+
+          {/*<p>{differences[content]}</p>*/}
+
+          { ifContent }
 
         <Header></Header>
         <a href="https://vite.dev" target="_blank">
