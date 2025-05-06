@@ -11,7 +11,7 @@ export default function TeachingSection() {
     let [ content, setContent ] = useState(0)
     // Стэйт всегда на верхнем уровне (на левом, главном)
 
-    let ifContent = null
+    let ifContent = null;
 
     if (content) {
         ifContent = <p>{differences[content]}</p>
