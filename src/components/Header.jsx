@@ -26,10 +26,14 @@ export default function Header() {
             </header>
 
             <ul className="123">
-            <CreateLi title={data[0].title} description={data[0].description}/>
-                <CreateLi {...data[1]}/>
-                <CreateLi {...data[2]}/>
-                <CreateLi {...data[3]}/>
+            {/*<CreateLi title={data[0].title} description={data[0].description}/>*/}
+            {/*    <CreateLi {...data[1]}/>*/}
+            {/*    <CreateLi {...data[2]}/>*/}
+            {/*    <CreateLi {...data[3]}/>*/}
+
+                {data.map((way) => (
+                    <CreateLi key={way.title} {... way}/>
+                ))}
             </ul>
 
 
